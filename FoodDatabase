@@ -14,4 +14,67 @@ Ham (Cooked), 7, 3
 Ham (Canned), 270, 3-4
 Ham (Cooked, Shelf-stable), 730, 3-5
 Canned Meat (Shelf-Stable), 730-1825, 3-4
+Steaks/Roasts, 3-5
+Chicken/Turkey/Game Birds, 1-2
+}
+
+DAIRY
+{
+Butter/Margarine, 30-90
+Buttermilk, 7-14, N/A
+Cheese spread, N/A, 14
+Cottage Cheese, 7, N/A
+Cream Cheese, 14, N/A
+Milk (Fluid), 5-7, N/A
+Milk (Evaporated), N/A, 3-5
+Hard Cheese, 180, 21-28
+Pudding, N/A, 2
+Sour Cream, 7-21, N/A
+Whipping Cream, 10
+Yogurt, 1
+}
+
+FRUITS
+{
+Apples, 1
+Apricots, 3-5
+Avocados, 5
+Bananas, 5
+Berries, 2-3
+Grapes, 5
+Citruses, 14
+Melons, 7
+Peaches, 2-3
+Pears, 5
+Pnieapples, 5-7
+Plums, 5
+Rhubarb, 7
+}
+
+VEGETABLES
+{
+Artichokes, 2-3
+Asparagus, 2-3
+Beets, 14
+Broccoli, 3-5
+Brussels Sprouts, 3-5
+Cabbage, 7
+Carrots, 14
+Cauliflower, 7
+Celery, 7
+Corn, 1-2
+Cucumbers, 7
+Eggplant, 2-3
+Green Beans, 7-14
+Greens, 3-5
+Lettuce/Salad Greens, 3-5
+Lima Beans, 3-5
+Mushrooms, 1-2
+Onions, 3-5
+Parsley, 2-3
+Peasn, 3-5
+Peppers, 7
+Radishes, 14
+Tomatoes, 7
+Zucchini, 3-5
 }
