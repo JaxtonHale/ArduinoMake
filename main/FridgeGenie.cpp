@@ -42,6 +42,7 @@ FridgeGenie::~FridgeGenie()
 void FridgeGenie::run()
 {
   m_input.check_for_input();
+  m_output.draw_all();
 }
 
 FridgeGenie* FridgeGenie::instance()
