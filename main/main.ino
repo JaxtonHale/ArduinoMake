@@ -8,9 +8,23 @@ JsonObject& root = jsonBuffer.createObject();
 class FridgeGenie
 {
 public:
-  void run();
-private:
+  void run()
+  {
+    
+  }
+  void init()
+  {
+    
+  }
+  static FridgeGenie* instance()
+  {
+    
+  }
   
+  FridgeGenie(FridgeGenie const&) = delete;
+  FridgeGenie& operator=(FridgeGenie const&) = delete;
+private:
+  FridgeGenie* m_p_instance = nullptr;
 };
 
 class ArduinoInput
@@ -24,13 +38,14 @@ private:
 class ArduinoOutput
 {
 public:
-
+  
 private:
 
-}
+};
 
 void setup()
 {
+  init();
   //StaticJsonBuffer<JSON_SIZE> jsonBuffer;
 //  root = jsonBuffer.createObject();
   
