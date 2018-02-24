@@ -2,9 +2,9 @@
 #include "ArduinoJson.h"
 #include "FridgeGenie.h"
 
-const size_t JSON_SIZE = 300;
-StaticJsonBuffer<JSON_SIZE> jsonBuffer;
-JsonObject& root = jsonBuffer.createObject();
+
+
+//JsonObject& root = jsonBuffer.createObject();
 /*
 class FridgeGenie
 {

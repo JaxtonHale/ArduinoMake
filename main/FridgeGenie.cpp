@@ -2,7 +2,7 @@
 
 FridgeGenie* FridgeGenie::m_p_instance = nullptr;
 
-FridgeGenie::FridgeGenie()
+FridgeGenie::FridgeGenie() : m_root(m_jsonBuffer.createObject())
 {
   
 }
