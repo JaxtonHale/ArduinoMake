@@ -6,7 +6,7 @@
 
 #include "rgb_lcd.h"
 
-typedef rgb_color unsigned int;
+//typedef rgb_color unsigned int;
 
 class ArduinoInput
 {
@@ -35,9 +35,9 @@ private:
   rgb_lcd m_status_lcd;
   rgb_lcd m_menu_lcd;
 
-  const rgb_color BACKLIGHT_R = 255;
-  const rgb_color BACKLIGHT_G = 255;
-  const rgb_color BACKLIGHT_B = 255;
+  const unsigned int BACKLIGHT_R = 255;
+  const unsigned int BACKLIGHT_G = 255;
+  const unsigned int BACKLIGHT_B = 255;
 
   const size_t NUM_COLS = 16;
   const size_t NUM_ROWS = 2;
