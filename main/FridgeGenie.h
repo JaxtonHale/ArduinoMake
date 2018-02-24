@@ -2,6 +2,7 @@
 #define FRIDGE_GENIE_H
 
 #include "ArduinoJson.h"
+#include "ArduinoIO.h"
 
 const size_t JSON_SIZE = 300;
 
@@ -21,6 +22,9 @@ private:
    
    StaticJsonBuffer<JSON_SIZE> m_jsonBuffer;
    JsonObject& m_json;
+
+   ArduinoInput m_input;
+   ArduioOutput m_output;
 };
 
 #endif

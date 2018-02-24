@@ -2,22 +2,6 @@
 #include "ArduinoJson.h"
 #include "FridgeGenie.h"
 
-class ArduinoInput
-{
-public:
-
-private:
-  
-};
-
-class ArduinoOutput
-{
-public:
-  
-private:
-
-};
-
 void setup()
 {
   //init();
