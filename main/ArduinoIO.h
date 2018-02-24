@@ -4,15 +4,15 @@
 class ArduinoInput
 {
 public:
-  void HandleInput();
+  void check_for_input();
 private:
-  
+  void handle_input(int pin);
 };
 
 class ArduinoOutput
 {
 public:
-  void DrawOnLCD(const char* text);
+  void draw_on_lcd(const char* text);
 private:
 
 };
