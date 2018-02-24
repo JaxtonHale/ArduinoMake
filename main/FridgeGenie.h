@@ -9,6 +9,8 @@ class FridgeGenie
 {
 public:
   FridgeGenie();
+  ~FridgeGenie();
+  
   void run();
   static FridgeGenie* instance();
 
@@ -18,7 +20,7 @@ private:
    static FridgeGenie* m_p_instance;
    
    StaticJsonBuffer<JSON_SIZE> m_jsonBuffer;
-   JsonObject& m_root;
+   JsonObject& m_json;
 };
 
 #endif
