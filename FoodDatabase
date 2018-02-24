@@ -1,0 +1,17 @@
+// Food, Unopened Days, Opened Days
+
+MEAT
+{
+Poultry (Cooked), 3-4, 3-4
+Sausage (Cooked), 3-4, 3-4
+Sausage (Uncooked), 42, 21
+Corned Beef (Uncooked), 5-7, 3-4
+Vacuum-packed Dinner, 14, 3-4
+Bacon, 14, 7
+Hot Dogs, 14, 7
+Lunch Meat, 14, 3-5
+Ham (Cooked), 7, 3
+Ham (Canned), 270, 3-4
+Ham (Cooked, Shelf-stable), 730, 3-5
+Canned Meat (Shelf-Stable), 730-1825, 3-4
+}
