@@ -1,10 +1,11 @@
 //#include <LiquidCrystal.h>
 #include "ArduinoJson.h"
+#include "FridgeGenie.h"
 
 const size_t JSON_SIZE = 300;
 StaticJsonBuffer<JSON_SIZE> jsonBuffer;
 JsonObject& root = jsonBuffer.createObject();
-
+/*
 class FridgeGenie
 {
 public:
@@ -13,10 +14,6 @@ public:
 
   }
   void run()
-  {
-    
-  }
-  void init()
   {
     
   }
@@ -31,9 +28,12 @@ public:
   
   FridgeGenie(FridgeGenie const&) = delete;
   FridgeGenie& operator=(FridgeGenie const&) = delete;
+  
 private:
-  static FridgeGenie* m_p_instance = nullptr;
+  static FridgeGenie* m_p_instance;
 };
+*/
+//FridgeGenie* FridgeGenie::m_p_instance = nullptr;
 
 class ArduinoInput
 {
