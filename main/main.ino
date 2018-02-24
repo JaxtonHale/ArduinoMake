@@ -12,4 +12,5 @@ void setup()
 void loop()
 {
   FridgeGenie::instance()->run();
+  delay(200);
 }
