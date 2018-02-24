@@ -12,7 +12,8 @@ private:
 class ArduinoOutput
 {
 public:
-  void draw_on_lcd(const char* text);
+  void draw_lcd_status();
+  void draw_lcd_menu();
 private:
 
 };

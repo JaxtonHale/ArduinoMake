@@ -41,7 +41,7 @@ FridgeGenie::~FridgeGenie()
 
 void FridgeGenie::run()
 {
-  
+  m_input.check_for_input();
 }
 
 FridgeGenie* FridgeGenie::instance()

@@ -1,11 +1,20 @@
 #include "ArduinoIO.h"
 
-void ArduinoInput::handle_input()
+void ArduinoInput::check_for_input()
 {
   
 }
 
-void ArduinoOutput::draw_on_lcd(const char* text)
+void ArduinoInput::handle_input(int pin)
+{
+  
+}
+
+void ArduinoOutput::draw_lcd_status()
+{
+  
+}
+void ArduinoOutput::draw_lcd_menu()
 {
   
 }
