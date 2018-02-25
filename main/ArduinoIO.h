@@ -21,7 +21,15 @@ enum class OperationMode
 //global variable - messy - oh well
 extern OperationMode operation_mode;
 extern int active_item;
+extern char* add_menu_options[];
+extern char* add_menu_options_meat[];
+extern char* add_menu_options_meat_cooked[];
+extern char* add_menu_options_meat_uncooked[];
+extern char* add_menu_options_meat_canned[];
+extern char* add_menu_options_vegetables[];
+extern char* add_menu_options_dairy[];
 
+extern char* selected_menu[];
 
 //for status screen - used as cutoff to determine number of items close to expiration
 const int days_until_expiration_cutoff;

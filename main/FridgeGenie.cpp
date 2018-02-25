@@ -15,15 +15,15 @@ FridgeGenie::FridgeGenie() : m_json(m_jsonBuffer.createObject())
   m_json["Meat"]["Uncooked"]["Lunch Meat"] = 14;
   m_json["Meat"]["Cooked"]["Ham"] = 7;
   m_json["Meat"]["Canned"]["Ham"] = 270;
-  m_json["Meat"]["Cooked"]["Ham"]["Shelf-stable"] = 730;
+//  m_json["Meat"]["Cooked"]["Ham"]["Shelf-stable"] = 730;
  // m_json["Meat"]["Canned Meat"]["Shelf-stable"] = 730;
   m_json["Meat"]["Uncooked"]["Steaks/Roasts"] = 3;
-  m_json["Meat"]["Uncooked"]["Chicken/Turkey/Game Birds"] = 2;
+  m_json["Meat"]["Uncooked"]["Poultry"] = 2;
 
   m_json["Dairy"]["Butter/Margarine"] = 30;
   m_json["Dairy"]["Buttermilk"] = 7;
   m_json["Dairy"]["Yogurt"] = 1;
-  m_json["Dairy"]["Milk"]["Fluid"] = 5;
+  m_json["Dairy"]["Milk"] = 5;
 
   m_json["Vegetables"]["Artichokes"] = 2;
   m_json["Vegetables"]["Beets"] = 14;
@@ -31,6 +31,8 @@ FridgeGenie::FridgeGenie() : m_json(m_jsonBuffer.createObject())
   m_json["Vegetables"]["Broccoli"] = 3;
   m_json["Vegetables"]["Cucumbers"] = 7;
   m_json["Vegetables"]["Tomatoes"] = 7;
+  //ArduinoJson gave me too much trouble. Switched to hardcoding.
+  
 }
 
 FridgeGenie::~FridgeGenie()

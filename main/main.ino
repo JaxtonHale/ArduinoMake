@@ -14,13 +14,8 @@ void setup()
   pinMode(Pin::DOWN_BUTTON, INPUT);
   pinMode(Pin::CANCEL_BUTTON, INPUT);
   pinMode(Pin::ENTER_BUTTON, INPUT);
-  Serial.begin(9600);
-//  HashType<char*,int> hashRawArray[HASH_SIZE];
-//  HashMap<char*,int> hashMap = HashMap<char*,int>( hashRawArray , HASH_SIZE );
-//  hashMap[0]("Value 1",2000);
-//  Serial.print(hashMap.getValueOf("Value 1"));
   
-  FoodList m;
+//  FoodList m;
 //  cycle_print(m.get_bool_array());
 
   
