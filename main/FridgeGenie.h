@@ -6,6 +6,12 @@
 
 const size_t JSON_SIZE = 300;
 
+struct FoodData
+{
+  float time_until_expiration;
+  String identifier;
+};
+
 class FridgeGenie
 {
 public:
