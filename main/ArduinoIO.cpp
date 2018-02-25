@@ -7,7 +7,11 @@
 #include "FridgeGenie.h"
 
 OperationMode G::operation_mode = OperationMode::ADD;
-JsonObject::iterator G::iter;
+namespace G
+{
+  JsonObject::iterator iter;
+}
+//JsonObject::iterator G::iter;
 String G::active_item;
 
 void ArduinoInput::check_for_input()
@@ -37,9 +41,9 @@ void ArduinoInput::cancel_pressed()
 
 void ArduinoInput::enter_pressed()
 {
-    JsonObject& subheaders = (FridgeGenie::instance())->m_json[G::iter->key()];
-    G::active_item += G::iter->key();
-    G:iter++;
+    JsonObject& subheaders = (FridgeGenie::instance())->m_json[G::iter->key];
+    G::active_item == G::iter->key;
+    ++G::iter;
 }
 
 

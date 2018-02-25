@@ -1,6 +1,6 @@
 //#include <rgb_lcd.h>
 //#include <Grove_LED_Bar.h>
-#include "Vector.h"
+
 #include "ArduinoJson.h"
 
 #ifndef ARDUINO_IO_H
@@ -21,7 +21,7 @@ enum class OperationMode
 namespace G
 {
   extern OperationMode operation_mode;
-  extern JsonObject::iterator iter;
+//  extern JsonObject::iterator iter;
   extern String active_item;
 }
 
@@ -87,8 +87,6 @@ private:
 
 //display main menu
   void draw_main_menu();
-
-  Vector<String> m_food_names;  
 };
 
 #endif

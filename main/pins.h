@@ -1,3 +1,6 @@
+#ifndef PINS_H
+#define PINS_H
+
 namespace Pin
 {
   const int DOWN_BUTTON = 5;
@@ -6,4 +9,4 @@ namespace Pin
   const int ENTER_BUTTON = 8;
 }
 
-
+#endif
