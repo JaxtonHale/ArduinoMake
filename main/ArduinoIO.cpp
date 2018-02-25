@@ -5,20 +5,34 @@
 #include "pins.h"
 #include <Wire.h>
 #include "FridgeGenie.h"
+#include "List.h"
 
 //sorry this is semi incomplete
-
+//No worries bro
+char* default_vals = new char[5];
+List<char> food_list(default_vals, 5, 5, default_vals[0]);
 OperationMode operation_mode = OperationMode::ADD;
 int active_item;
 
-JsonObject::iterator iter;
+
+
 
 //JsonObject::iterator G::iter;
+void read_json()
+{
+  FridgeGenie* ptr = FridgeGenie::instance();
+  JsonObject::iterator iter= ptr->m_json.begin();
+  for(int i = 0; i<ptr->m_json.size(); i++)
+  {
+    food_list.add(iter->key);
+    iter++;
+  }
+}
 
 void ArduinoInput::check_for_input()
 {
   //really messy and bad function zzz
-  
+  //*a finely written function
   if (digitalRead(Pin::UP_BUTTON)) up_pressed();
   if (digitalRead(Pin::DOWN_BUTTON)) down_pressed();
   if (digitalRead(Pin::CANCEL_BUTTON)) cancel_pressed();
@@ -27,12 +41,12 @@ void ArduinoInput::check_for_input()
 
 void ArduinoInput::up_pressed()
 {
- // G::iter--;
+ // iter--;
 }
 
 void ArduinoInput::down_pressed()
 {
-  iter++;
+//  iter++;
 }
 
 void ArduinoInput::cancel_pressed()
@@ -42,9 +56,9 @@ void ArduinoInput::cancel_pressed()
 
 void ArduinoInput::enter_pressed()
 {
-    JsonObject& subheaders = (FridgeGenie::instance())->m_json[iter->key];
-    active_item == iter->key;
-    ++iter;
+//    JsonObject& subheaders = (FridgeGenie::instance())->m_json[iter->key];
+//    active_item == iter->key;
+//    ++iter;
 }
 
 
@@ -93,9 +107,9 @@ void ArduinoOutput::draw_deletion_screen()
 {
   if (m_old_operation_mode != operation_mode)
   {
-    FridgeGenie* ptr = FridgeGenie::instance();
-    iter = ptr->m_json.begin(); 
-    m_old_operation_mode = operation_mode;
+//    FridgeGenie* ptr = FridgeGenie::instance();
+//    iter = ptr->m_json.begin(); 
+//    m_old_operation_mode = operation_mode;
   }
   
   m_lcd.setCursor(0, 0);
@@ -112,9 +126,9 @@ void ArduinoOutput::draw_addition_screen()
 {
   if (m_old_operation_mode != operation_mode)
   {
-    FridgeGenie* ptr = FridgeGenie::instance();
-    iter = ptr->m_json.begin(); 
-    m_old_operation_mode = operation_mode;
+//    FridgeGenie* ptr = FridgeGenie::instance();
+//    iter = ptr->m_json.begin(); 
+//    m_old_operation_mode = operation_mode;
 
     
   }

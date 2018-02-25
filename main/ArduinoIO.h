@@ -28,6 +28,10 @@ const int days_until_expiration_cutoff;
 
 //typedef rgb_color unsigned int;
 
+
+//Read the json data in so we don't have to keep iterating...
+void read_json();
+
 //class to handle arduino input 
 class ArduinoInput
 {
