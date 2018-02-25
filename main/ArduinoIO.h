@@ -1,7 +1,7 @@
 //#include <rgb_lcd.h>
 //#include <Grove_LED_Bar.h>
-
-class JsonObject;
+#include "Vector.h"
+#include "ArduinoJson.h"
 
 #ifndef ARDUINO_IO_H
 #define ARDUINO_IO_H
@@ -18,8 +18,12 @@ enum class OperationMode
 };
 
 //global variable - messy - oh well
-extern OperationMode operation_mode;
-extern JsonObject::iterator iter;
+namespace G
+{
+  extern OperationMode operation_mode;
+  extern JsonObject::iterator iter;
+  extern String active_item;
+}
 
 const int days_until_expiration_cutoff;
 
@@ -34,6 +38,8 @@ public:
 private:
 //called by check_for_input ... handles the input and performs the appropriate operations
 //  void handle_input(int pin);
+
+  
 
 //up button press
   void up_pressed();
@@ -58,6 +64,9 @@ public:
   
 private:
 
+  OperationMode m_old_operation_mode;
+  
+  
   rgb_lcd m_lcd;
 
   const unsigned int BACKLIGHT_R = 255;
@@ -79,6 +88,7 @@ private:
 //display main menu
   void draw_main_menu();
 
+  Vector<String> m_food_names;  
 };
 
 #endif

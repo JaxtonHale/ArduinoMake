@@ -1,35 +1,33 @@
 #define byte uint8_t
 
 #include "ArduinoIO.h"
+#include "Arduino.h"
 #include "pins.h"
 #include <Wire.h>
 #include "FridgeGenie.h"
 
-OperationMode operation_mode = OperationMode::ADD;
-JsonObject::iterator iter;
+OperationMode G::operation_mode = OperationMode::ADD;
+JsonObject::iterator G::iter;
+String G::active_item;
 
 void ArduinoInput::check_for_input()
 {
   //really messy and bad function zzz
-  bool up_pressed = DigitalRead(UP_BUTTON);
-  bool down_pressed = DigitalRead(DOWN_BUTTON);
-  bool cancel_pressed = DigitalRead(CANCEL_BUTTON);
-  bool enter_pressed = DigitalRead(ENTER_BUTTON);
-
-  if (up_pressed) up_pressed();
-  if (down_pressed) down_pressed(DOWN_BUTTON);
-  if (cancel_pressed) cancel_pressed(CANCEL_BUTTON);
-  if (enter_pressed) enter_pressed(ENTER_BUTTON);
+  
+  if (digitalRead(Pin::UP_BUTTON)) up_pressed();
+  if (digitalRead(Pin::DOWN_BUTTON)) down_pressed();
+  if (digitalRead(Pin::CANCEL_BUTTON)) cancel_pressed();
+  if (digitalRead(Pin::ENTER_BUTTON)) enter_pressed();
 }
 
 void ArduinoInput::up_pressed()
 {
-  
+ // G::iter--;
 }
 
 void ArduinoInput::down_pressed()
 {
-  
+  G::iter++;
 }
 
 void ArduinoInput::cancel_pressed()
@@ -39,7 +37,9 @@ void ArduinoInput::cancel_pressed()
 
 void ArduinoInput::enter_pressed()
 {
-  
+    JsonObject& subheaders = (FridgeGenie::instance())->m_json[G::iter->key()];
+    G::active_item += G::iter->key();
+    G:iter++;
 }
 
 
@@ -58,15 +58,17 @@ ArduinoOutput::ArduinoOutput()
 
 void ArduinoOutput::draw_all()
 {
-  if (operation_mode == OperationMode::STATUS)
+ 
+  
+  if (G::operation_mode == OperationMode::STATUS)
   {
      draw_lcd_status();
   }
-  else if (operation_mode == OperationMode::DELETE)
+  else if (G::operation_mode == OperationMode::DELETE)
   {
      draw_deletion_screen();
   }
-  else if (operation_mode == OperationMode::ADD)
+  else if (G::operation_mode == OperationMode::ADD)
   {
     draw_addition_screen();
   }
@@ -84,6 +86,13 @@ void ArduinoOutput::draw_lcd_status()
 
 void ArduinoOutput::draw_deletion_screen()
 {
+  if (m_old_operation_mode != G::operation_mode)
+  {
+    FridgeGenie* ptr = FridgeGenie::instance();
+    G::iter = ptr->m_json.begin(); 
+    m_old_operation_mode = G::operation_mode;
+  }
+  
   m_lcd.setCursor(0, 0);
   m_lcd.write((unsigned char)1);
   m_lcd.print(": DEL ");
@@ -96,6 +105,15 @@ void ArduinoOutput::draw_deletion_screen()
   
 void ArduinoOutput::draw_addition_screen()
 {
+  if (m_old_operation_mode != G::operation_mode)
+  {
+    FridgeGenie* ptr = FridgeGenie::instance();
+    G::iter = ptr->m_json.begin(); 
+    m_old_operation_mode = G::operation_mode;
+
+    
+  }
+  
   m_lcd.setCursor(0, 0);
   m_lcd.write((unsigned char)1);
   m_lcd.print(": ADD ");
@@ -103,8 +121,7 @@ void ArduinoOutput::draw_addition_screen()
   m_lcd.print(": MENU");
   m_lcd.setCursor(1, 0);
 
-  FridgeGenie* ptr = FridgeGenie::instance();
-  auto it = ptr->m_json.begin();
+ 
 }
   
 void ArduinoOutput::draw_main_menu()
