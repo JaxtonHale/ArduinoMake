@@ -4,19 +4,19 @@ FridgeGenie* FridgeGenie::m_p_instance = nullptr;
 
 FridgeGenie::FridgeGenie() : m_json(m_jsonBuffer.createObject())
 {
-  m_json["Meat"]["Poultry"]["Cooked"] = 3;
-  m_json["Meat"]["Sausage"]["Cooked"] = 3;
-  m_json["Meat"]["Sausage"]["Uncooked"] = 42;
-  m_json["Meat"]["Vacuum-packed Dinner"] = 14;
-  m_json["Meat"]["Bacon"] = 14;
-  m_json["Meat"]["Hot Dogs"] = 14;
-  m_json["Meat"]["Lunch Meat"] = 14;
-  m_json["Meat"]["Ham"]["Cooked"] = 7;
-  m_json["Meat"]["Ham"]["Canned"] = 270;
-  m_json["Meat"]["Ham"]["Cooked"]["Shelf-stable"] = 730;
-  m_json["Meat"]["Canned Meat"]["Shelf-stable"] = 730;
-  m_json["Meat"]["Steaks/Roasts"] = 3;
-  m_json["Meat"]["Chicken/Turkey/Game Birds"] = 2;
+  m_json["Meat"]["Cooked"]["Poultry"] = 3;
+  m_json["Meat"]["Cooked"]["Sausage"] = 3;
+  m_json["Meat"]["Uncooked"]["Sausage"] = 42;
+  //m_json["Meat"]["Vacuum-packed Dinner"] = 14;
+  m_json["Meat"]["Uncooked"]["Bacon"] = 14;
+  //m_json["Meat"]["Hot Dogs"] = 14;
+  m_json["Meat"]["Uncooked"]["Lunch Meat"] = 14;
+  m_json["Meat"]["Cooked"]["Ham"] = 7;
+  m_json["Meat"]["Canned"]["Ham"] = 270;
+  m_json["Meat"]["Cooked"]["Ham"]["Shelf-stable"] = 730;
+ // m_json["Meat"]["Canned Meat"]["Shelf-stable"] = 730;
+  m_json["Meat"]["Uncooked"]["Steaks/Roasts"] = 3;
+  m_json["Meat"]["Uncooked"]["Chicken/Turkey/Game Birds"] = 2;
 
   m_json["Dairy"]["Butter/Margarine"] = 30;
   m_json["Dairy"]["Buttermilk"] = 7;

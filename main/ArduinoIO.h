@@ -6,6 +6,20 @@
 
 #include "rgb_lcd.h"
 
+//enum class to store modes of operation 
+enum class OperationMode
+{
+  STATUS,
+  DELETE,
+  ADD,
+  MENU
+};
+
+//global variable - messy - oh well
+extern OperationMode operation_mode;
+
+const int days_until_expiration_cutoff;
+
 //typedef rgb_color unsigned int;
 
 class ArduinoInput
@@ -32,8 +46,7 @@ public:
   
 private:
 
-  rgb_lcd m_status_lcd;
-  rgb_lcd m_menu_lcd;
+  rgb_lcd m_lcd;
 
   const unsigned int BACKLIGHT_R = 255;
   const unsigned int BACKLIGHT_G = 255;
@@ -45,8 +58,14 @@ private:
 //display stuff on the lcd "fridge status" screen
   void draw_lcd_status();
 
-//display stuff on the lcd menu screen
-  void draw_lcd_menu();
+//display deletion menu for removing items from the active items hashmap
+  void draw_deletion_screen();
+  
+//display addition menu for adding items to the active items hashmap
+  void draw_addition_screen();
+
+//display main menu
+  void draw_main_menu();
 
 };
 
