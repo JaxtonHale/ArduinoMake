@@ -244,7 +244,7 @@ void ArduinoOutput::draw_lcd_status()
 {
   //reset cursor position for printing
   m_lcd.setCursor(0, 0);
-  m_lcd.print("10:22AM 2/25/2018");
+  m_lcd.print("10:40AM 2/25/18");
 
   
 }
