@@ -3,15 +3,41 @@
 #include "ArduinoIO.h"
 #include "pins.h"
 #include <Wire.h>
+#include "FridgeGenie.h"
 
 OperationMode operation_mode = OperationMode::ADD;
+JsonObject::iterator iter;
 
 void ArduinoInput::check_for_input()
+{
+  //really messy and bad function zzz
+  bool up_pressed = DigitalRead(UP_BUTTON);
+  bool down_pressed = DigitalRead(DOWN_BUTTON);
+  bool cancel_pressed = DigitalRead(CANCEL_BUTTON);
+  bool enter_pressed = DigitalRead(ENTER_BUTTON);
+
+  if (up_pressed) up_pressed();
+  if (down_pressed) down_pressed(DOWN_BUTTON);
+  if (cancel_pressed) cancel_pressed(CANCEL_BUTTON);
+  if (enter_pressed) enter_pressed(ENTER_BUTTON);
+}
+
+void ArduinoInput::up_pressed()
 {
   
 }
 
-void ArduinoInput::handle_input(int pin)
+void ArduinoInput::down_pressed()
+{
+  
+}
+
+void ArduinoInput::cancel_pressed()
+{
+  
+}
+
+void ArduinoInput::enter_pressed()
 {
   
 }
@@ -77,7 +103,8 @@ void ArduinoOutput::draw_addition_screen()
   m_lcd.print(": MENU");
   m_lcd.setCursor(1, 0);
 
-  auto it = 
+  FridgeGenie* ptr = FridgeGenie::instance();
+  auto it = ptr->m_json.begin();
 }
   
 void ArduinoOutput::draw_main_menu()

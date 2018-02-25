@@ -1,6 +1,8 @@
 //#include <rgb_lcd.h>
 //#include <Grove_LED_Bar.h>
 
+class JsonObject;
+
 #ifndef ARDUINO_IO_H
 #define ARDUINO_IO_H
 
@@ -17,6 +19,7 @@ enum class OperationMode
 
 //global variable - messy - oh well
 extern OperationMode operation_mode;
+extern JsonObject::iterator iter;
 
 const int days_until_expiration_cutoff;
 
@@ -30,7 +33,16 @@ public:
   
 private:
 //called by check_for_input ... handles the input and performs the appropriate operations
-  void handle_input(int pin);
+//  void handle_input(int pin);
+
+//up button press
+  void up_pressed();
+//down button press
+  void down_pressed();
+//cancel button press
+  void cancel_pressed();
+//enter button press
+  void enter_pressed();
 };
 
 class ArduinoOutput

@@ -15,11 +15,11 @@ void setup()
   hashMap[0]("Value 1",2000);
   
   Serial.print(hashMap.getValueOf("Value 1"));
-  //init();
-  //StaticJsonBuffer<JSON_SIZE> jsonBuffer;
-//  root = jsonBuffer.createObject();
-  //pinMode(Pin::MENU_LCD, OUTPUT);
-  //pinMode(Pin::STATUS_LCD, OUTPUT);
+ 
+  pinMode(Pin::UP_BUTTON, INPUT);
+  pinMode(Pin::DOWN_BUTTON, INPUT);
+  pinMode(Pin::CANCEL_BUTTON, INPUT);
+  pinMode(Pin::ENTER_BUTTON, INPUT);
 }
 void loop()
 {
