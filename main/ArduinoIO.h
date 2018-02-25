@@ -41,7 +41,7 @@ const int days_until_expiration_cutoff;
 void read_json();
 
 bool compare_arrays(char* a[], char* b[]);
-
+void set_menu(char* selected[], char* next[]);
 //class to handle arduino input 
 class ArduinoInput
 {

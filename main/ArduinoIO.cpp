@@ -130,12 +130,13 @@ void ArduinoInput::cancel_pressed()
       memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
       menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
       active_item = 0;
+      operation_mode = OperationMode::STATUS;
       return;
     }
     else if(selected_menu[0] == "Cooked")
     {
-      memcpy(selected_menu, add_menu_options_meat, sizeof(add_menu_options_meat));
-      menu_size = sizeof(add_menu_options_meat)/sizeof(add_menu_options_meat[0]);
+      memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+      menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
       active_item = 0;
       return;
     }
@@ -244,8 +245,9 @@ void ArduinoOutput::draw_lcd_status()
 {
   //reset cursor position for printing
   m_lcd.setCursor(0, 0);
-  m_lcd.print("10:40AM 2/25/18");
-
+  m_lcd.print("11:00AM 2/25/2018");
+  m_lcd.setCursor(0, 1);
+  m_lcd.print("                      ");
   
 }
 
