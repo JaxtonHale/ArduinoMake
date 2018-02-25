@@ -9,8 +9,8 @@
 
 //sorry this is semi incomplete
 //No worries bro
-char* default_vals = new char[5];
-List<char> food_list(default_vals, 5, 5, default_vals[0]);
+char* default_vals[] = {"","","","",""};
+List<char*> food_list(default_vals, 5, 5, default_vals[0]);
 OperationMode operation_mode = OperationMode::STATUS;
 int active_item = 0;
 int menu_size = 0;
@@ -43,6 +43,15 @@ void read_json()
 //    food_list.add(iter->key);
 //    iter++;
 //  }
+}
+bool compare_arrays(char* a[], char* b[])
+{
+  int len = sizeof(a)/sizeof(a[0])<sizeof(b)/sizeof(b[0])?sizeof(a)/sizeof(a[0]):sizeof(b)/sizeof(b[0]);
+  for(int i = 0; i<len; i++)
+  {
+    if(a[i]!=b[i])return false;
+  }
+  return true;
 }
 
 void ArduinoInput::check_for_input()
