@@ -1,6 +1,5 @@
 #include "ArduinoIO.h"
-//#include "DateTime.h"
-//#include "DateTimeStrings.h"
+#include "pins.h"
 
 void ArduinoInput::check_for_input()
 {
@@ -35,11 +34,13 @@ void ArduinoOutput::draw_lcd_status()
 {
   //reset cursor position for printing
   m_status_lcd.setCursor(0, 0);
+  m_status_lcd.print("ease");
 }
 void ArduinoOutput::draw_lcd_menu()
 {
   //reset cursor position for printing
   m_status_lcd.setCursor(0, 0); 
+  m_status_lcd.print("ease");
 }
 
 
