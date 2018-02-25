@@ -69,6 +69,8 @@ void ArduinoInput::up_pressed()
   if(operation_mode == OperationMode::STATUS)
   {
     operation_mode = OperationMode::ADD;
+    memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+    menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
     active_item = 0;
   }
   if(operation_mode == OperationMode::ADD)
@@ -89,6 +91,8 @@ void ArduinoInput::down_pressed()
   if(operation_mode == OperationMode::STATUS)
   {
     operation_mode = OperationMode::ADD;
+    memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+    menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
     active_item = 0;
   }
   if(operation_mode == OperationMode::ADD)
@@ -109,13 +113,17 @@ void ArduinoInput::cancel_pressed()
   if(operation_mode == OperationMode::STATUS)
   {
     operation_mode = OperationMode::ADD;
+    memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+    menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
     active_item = 0;
   }
   if(operation_mode == OperationMode::ADD)
   {
     if(menu_size==0)
     {
-      
+      memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+      menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
+      active_item = 0;
     }
     if(selected_menu[0] == "Meat")
     {
@@ -140,6 +148,8 @@ void ArduinoInput::enter_pressed()
   if(operation_mode == OperationMode::STATUS)
   {
     operation_mode = OperationMode::ADD;
+    memcpy(selected_menu, add_menu_options, sizeof(add_menu_options));
+    menu_size = sizeof(add_menu_options)/sizeof(add_menu_options[0]);
     active_item = 0;
   }
   if(operation_mode == OperationMode::ADD)
@@ -234,7 +244,7 @@ void ArduinoOutput::draw_lcd_status()
 {
   //reset cursor position for printing
   m_lcd.setCursor(0, 0);
-  m_lcd.print("9:03AM 2/25/2018");
+  m_lcd.print("10:22AM 2/25/2018");
 
   
 }
@@ -253,7 +263,7 @@ void ArduinoOutput::draw_deletion_screen()
   m_lcd.write((unsigned char)1);
   m_lcd.print(": DEL ");
   m_lcd.write((unsigned char)2);
-  m_lcd.print(": MENU");
+  m_lcd.print(": MENU     ");
   m_lcd.setCursor(1, 0);
 
   
@@ -274,12 +284,12 @@ void ArduinoOutput::draw_addition_screen()
   m_lcd.write((unsigned char)1);
   m_lcd.print(": ADD ");
   m_lcd.write((unsigned char)2);
-  m_lcd.print(": MENU");
+  m_lcd.print(": MENU           ");
   m_lcd.setCursor(0, 1);
 
   
   m_lcd.print(selected_menu[active_item]);
-  m_lcd.print("         ");
+  m_lcd.print("                    ");
   
  
 }
