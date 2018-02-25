@@ -9,8 +9,39 @@ const size_t JSON_SIZE = 300;
 
 struct FoodData
 {
-  float time_until_expiration;
-  String identifier;
+  FoodData& operator =(const FoodData data)
+  {
+    time_until_expiration = data.time_until_expiration;
+    id = data.id;
+    return *this;
+  }
+  FoodData& operator =(const int data)
+  {
+    if(data==0)
+    {
+      time_until_expiration = -1;
+      id = -1;
+    }
+    
+    return *this;
+  }
+
+  bool operator ==(const int data)const
+  {
+    if(data<=0 && time_until_expiration == -1 && id == -1)return true;
+    
+    return false;
+  }
+
+  bool operator ==(const FoodData data)const
+  {
+    if(time_until_expiration == data.time_until_expiration && id == data.id)return true;
+    
+    return false;
+  }
+  int time_until_expiration;
+  char* identifier;
+  int id;
 };
 
 class FridgeGenie

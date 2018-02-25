@@ -8,14 +8,12 @@
 
 //sorry this is semi incomplete
 
-OperationMode G::operation_mode = OperationMode::ADD;
+OperationMode operation_mode = OperationMode::ADD;
+int active_item;
 
-namespace G
-{
-  JsonObject::iterator iter;
-}
+JsonObject::iterator iter;
+
 //JsonObject::iterator G::iter;
-String G::active_item;
 
 void ArduinoInput::check_for_input()
 {
@@ -34,7 +32,7 @@ void ArduinoInput::up_pressed()
 
 void ArduinoInput::down_pressed()
 {
-  G::iter++;
+  iter++;
 }
 
 void ArduinoInput::cancel_pressed()
@@ -44,9 +42,9 @@ void ArduinoInput::cancel_pressed()
 
 void ArduinoInput::enter_pressed()
 {
-    JsonObject& subheaders = (FridgeGenie::instance())->m_json[G::iter->key];
-    G::active_item == G::iter->key;
-    ++G::iter;
+    JsonObject& subheaders = (FridgeGenie::instance())->m_json[iter->key];
+    active_item == iter->key;
+    ++iter;
 }
 
 
@@ -67,15 +65,15 @@ void ArduinoOutput::draw_all()
 {
  
   
-  if (G::operation_mode == OperationMode::STATUS)
+  if (operation_mode == OperationMode::STATUS)
   {
      draw_lcd_status();
   }
-  else if (G::operation_mode == OperationMode::DELETE)
+  else if (operation_mode == OperationMode::DELETE)
   {
      draw_deletion_screen();
   }
-  else if (G::operation_mode == OperationMode::ADD)
+  else if (operation_mode == OperationMode::ADD)
   {
     draw_addition_screen();
   }
@@ -93,11 +91,11 @@ void ArduinoOutput::draw_lcd_status()
 
 void ArduinoOutput::draw_deletion_screen()
 {
-  if (m_old_operation_mode != G::operation_mode)
+  if (m_old_operation_mode != operation_mode)
   {
     FridgeGenie* ptr = FridgeGenie::instance();
-    G::iter = ptr->m_json.begin(); 
-    m_old_operation_mode = G::operation_mode;
+    iter = ptr->m_json.begin(); 
+    m_old_operation_mode = operation_mode;
   }
   
   m_lcd.setCursor(0, 0);
@@ -112,11 +110,11 @@ void ArduinoOutput::draw_deletion_screen()
   
 void ArduinoOutput::draw_addition_screen()
 {
-  if (m_old_operation_mode != G::operation_mode)
+  if (m_old_operation_mode != operation_mode)
   {
     FridgeGenie* ptr = FridgeGenie::instance();
-    G::iter = ptr->m_json.begin(); 
-    m_old_operation_mode = G::operation_mode;
+    iter = ptr->m_json.begin(); 
+    m_old_operation_mode = operation_mode;
 
     
   }

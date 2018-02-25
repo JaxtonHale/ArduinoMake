@@ -17,13 +17,11 @@ enum class OperationMode
   MENU
 };
 
+
 //global variable - messy - oh well
-namespace G
-{
-  extern OperationMode operation_mode;
-//  extern JsonObject::iterator iter;
-  extern String active_item;
-}
+extern OperationMode operation_mode;
+extern int active_item;
+
 
 //for status screen - used as cutoff to determine number of items close to expiration
 const int days_until_expiration_cutoff;
