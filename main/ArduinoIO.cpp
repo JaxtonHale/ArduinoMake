@@ -6,7 +6,10 @@
 #include <Wire.h>
 #include "FridgeGenie.h"
 
+//sorry this is semi incomplete
+
 OperationMode G::operation_mode = OperationMode::ADD;
+
 namespace G
 {
   JsonObject::iterator iter;

@@ -25,10 +25,12 @@ namespace G
   extern String active_item;
 }
 
+//for status screen - used as cutoff to determine number of items close to expiration
 const int days_until_expiration_cutoff;
 
 //typedef rgb_color unsigned int;
 
+//class to handle arduino input 
 class ArduinoInput
 {
 public:
@@ -51,6 +53,7 @@ private:
   void enter_pressed();
 };
 
+//class that manages some things related to output, including printing to LCD
 class ArduinoOutput
 {
 public:
@@ -63,12 +66,19 @@ public:
   void draw_all();
   
 private:
+/*
+ old operation mode so we can see when the operation mode has changed.
+ ideally this would let us determine when mode has been switched and reiterate over the appropriate data structure
+ what I mean is that if we just switched to DELETE mode, we iterate over the already added items in the FridgeGenie hashmap.
+ However, if it is in ADD mode it would iterate over the food list from the JSON. The idea isn't really fleshed out though...
+ */
 
   OperationMode m_old_operation_mode;
   
-  
+  //object for the lcd
   rgb_lcd m_lcd;
 
+//backlight rgb color values
   const unsigned int BACKLIGHT_R = 255;
   const unsigned int BACKLIGHT_G = 255;
   const unsigned int BACKLIGHT_B = 255;

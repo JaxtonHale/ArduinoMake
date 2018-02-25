@@ -1,6 +1,7 @@
 #ifndef PINS_H
 #define PINS_H
 
+//store pin consts
 namespace Pin
 {
   const int DOWN_BUTTON = 5;

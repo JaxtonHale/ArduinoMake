@@ -4,6 +4,8 @@ FridgeGenie* FridgeGenie::m_p_instance = nullptr;
 
 FridgeGenie::FridgeGenie() : m_json(m_jsonBuffer.createObject())
 {
+  // create new json object using ArduinoJson library. These are being assigned to the number of days it takes for the item to expire (int).
+  
   m_json["Meat"]["Cooked"]["Poultry"] = 3;
   m_json["Meat"]["Cooked"]["Sausage"] = 3;
   m_json["Meat"]["Uncooked"]["Sausage"] = 42;
